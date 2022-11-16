@@ -3,7 +3,7 @@ package br.edu.fema.apistatemonitoring.commons.flyway;
 import java.util.stream.Stream;
 
 public enum DatabaseScriptPath {
-    POSTGRESQL("org.hibernate.dialect.PostgreSQLDialect", "classpath:db/migration/postgres");
+    POSTGRESQL("org.hibernate.dialect.PostgreSQLDialect", "classpath:db/migrations/postgres");
 
     private String dialect;
     private String scriptPath;
