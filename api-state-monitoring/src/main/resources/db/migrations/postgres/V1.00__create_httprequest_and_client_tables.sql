@@ -12,6 +12,9 @@ create table http_request (
     body text not null,
     method character varying(10) not null,
     sender character varying(30) not null,
+    requested_url character varying(255) not null,
+    message text not null,
+    request_date_time timestamp not null,
     client_id uuid not null,
     constraint http_request_client_fk foreign key (client_id) references client(id)
 )

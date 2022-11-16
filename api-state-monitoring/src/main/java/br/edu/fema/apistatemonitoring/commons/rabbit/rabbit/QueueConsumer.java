@@ -13,6 +13,8 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 @RequiredArgsConstructor
 public class QueueConsumer {
@@ -34,7 +36,10 @@ public class QueueConsumer {
                     rabbitMessage.getHttpRequestMessage().getStatus(),
                     rabbitMessage.getHttpRequestMessage().getBody(),
                     rabbitMessage.getHttpRequestMessage().getMethod(),
-                    rabbitMessage.getHttpRequestMessage().getSender()
+                    rabbitMessage.getHttpRequestMessage().getSender(),
+                    rabbitMessage.getHttpRequestMessage().getRequestedUrl(),
+                    rabbitMessage.getHttpRequestMessage().getMessage(),
+                    LocalDateTime.parse(rabbitMessage.getHttpRequestMessage().getRequestDateTime())
             );
             request.setClient(client);
             this.httpRequestRepository.save(request);
