@@ -23,6 +23,9 @@ public class HttpRequest {
     private UUID id;
     @NotNull
     private Integer status;
+
+    @NotNull
+    private String method;
     @NotNull
     private String body;
     @NotNull
@@ -33,9 +36,10 @@ public class HttpRequest {
     @NotNull
     private Client client;
 
-    public HttpRequest(Integer status, String body, String sender) {
+    public HttpRequest(Integer status, String body, String method, String sender) {
         this.status = status;
         this.body = body;
         this.sender = sender;
+        this.method = method;
     }
 }

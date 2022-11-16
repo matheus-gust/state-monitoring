@@ -14,11 +14,11 @@ public class ClientService {
 
     private final ClientRepository clientRepository;
 
-    public Client defineCliente(UUID clienteTenant, String clientDescription) {
+    public Client defineCliente(UUID clienteTenant, String clientDescription, String address, Integer port) {
         Optional<Client> client = this.clientRepository.findByTenant(clienteTenant);
         if(client.isPresent()) {
             return client.get();
         }
-        return this.clientRepository.save(new Client(clienteTenant, clientDescription));
+        return this.clientRepository.save(new Client(clienteTenant, clientDescription, address, port));
     }
 }

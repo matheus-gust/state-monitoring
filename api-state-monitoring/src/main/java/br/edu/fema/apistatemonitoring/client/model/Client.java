@@ -23,8 +23,14 @@ public class Client {
     private UUID tenant;
     private String description;
 
-    public Client(UUID tenant, String description) {
+    private String address;
+
+    private Integer port;
+
+    public Client(UUID tenant, String description, String address, Integer port) {
         this.tenant = tenant;
+        this.address = address;
+        this.port = port;
         this.description = description;
     }
 }
