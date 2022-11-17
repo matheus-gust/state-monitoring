@@ -1,0 +1,41 @@
+<po-page-default>
+
+    <div style="height: 400px;">
+
+        <po-chart *ngIf="participationByCountryInWorldExports.length > 0" class="po-md-6 po-mt-2" p-title="Requests per Hour" [p-options]="options"
+            [p-categories]="categories" [p-series]="participationByCountryInWorldExports"
+            [p-type]="participationByCountryInWorldExportsType">
+        </po-chart>
+        
+        <div class="po-md-6" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+            <h3>Database Health: {{health.databaseHealth?.status}}</h3> <br>
+            <h3>Rabbit Health: {{health.rabbitHelth?.status}}</h3>
+        </div>
+        
+    </div>
+    <div class="po-md-12 po-mt-2">
+            <div class="text-center">
+                <table class="table" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th class="text-center" scope="col">Method</th>
+                            <th class="text-center" scope="col">Status</th>
+                            <th class="text-center" scope="col">Requested Url</th>
+                            <th class="text-center" scope="col">Sender</th>
+                            <th class="text-center" scope="col">Request Date Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of items">
+                            <td>{{item.method}}</td>
+                            <td>{{item.status}}</td>
+                            <td>{{item.requestedUrl}}</td>
+                            <td>{{item.sender}}</td>
+                            <td>{{item.requestDateTime}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+</po-page-default>

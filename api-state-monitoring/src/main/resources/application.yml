@@ -16,3 +16,7 @@ spring:
 
 queue:
   name: httprequest
+
+server:
+  servlet:
+    context-path: /dashboard
